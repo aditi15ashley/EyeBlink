@@ -1,0 +1,86 @@
+<html>
+  <head>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <title>Eye Blink Demonstration</title>
+
+   <script src="http://www.youtube.com/player_api"></script>
+  </head>
+  <body>
+  	<div id="player"></div>
+
+    <h1>Eye Blink Demonstration</h1>
+    <img id="bg" src="{{ url_for('video_feed') }}">
+  </body>
+
+  <style>
+  	#bg {
+  		position: absolute;
+  		top:0px;
+  		left:0px;
+  		height:200px;
+  		width:200px;
+  		z-index:0;
+  		
+
+  	}
+
+  	#player {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+  	
+  </style>
+
+  <script>
+
+
+  	// create youtube player
+        var player;
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('player', {
+              width: '1400',
+              height: '700',
+              videoId: '0Bmhjf0rKe8',
+              events: {
+                onReady: onPlayerReady,
+                onStateChange: onPlayerStateChange
+              }
+            });
+        }
+
+        // autoplay video
+        function onPlayerReady(event) {			
+            event.target.playVideo();
+			console.log("video played");
+			//call your function here
+
+		
+        }
+
+        // when video ends
+        function onPlayerStateChange(event) {        
+            if(event.data === 0) {          
+                console.log("video finished");
+				//call your function here
+				//var elem = document.getElementById("bg");
+				//elem.remove();
+				function goPython(){
+		            $.ajax({
+		              url: "stop.py",
+		             context: document.body
+		            }).done(function() {
+		             alert('finished python script');;
+		            });
+        		}
+            }
+        }
+
+
+  	
+  </script>
+</html>
