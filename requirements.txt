@@ -1,0 +1,6 @@
+numpy==1.16.2
+Flask==1.0.2
+scipy==1.2.1
+opencv_python==4.1.0.25
+dlib==19.17.0
+imutils==0.5.2
