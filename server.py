@@ -40,7 +40,7 @@ def eye_aspect_ratio(eye):
 
 global camera 
 camera = VideoCamera()
-#frame = camera.get_frame()
+
 
 @app.route('/')
 def index():
