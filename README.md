@@ -18,6 +18,7 @@ pip install -r requirements.txt
 ```
 python server.py
 ```
+## How it works:
 The EAR measures the ratio of the horizontal eye landmarks to the vertical eye landmarks. The eye aspect ratio is approximately constant while the eye is open, but will rapidly fall to zero when a blink is taking place. If the EAR falls below a certian threshold, it is counted as a blink. The threshold currently set is 0.21 which can be changed to whatever seems appropriate. Note that the face should be as parallel to the screen as possible for accurate detection to take place. 
 
 The raw code for this application is in `eyeblink.py` which simply does the job of detecting the eyeblinks and can be used for applications other than keeping track of when a user blinks while watching a YouTube video. 
